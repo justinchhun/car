@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Car Rental</title>
+      <link rel="stylesheet" href="css/home.css">
+      <link rel="stylesheet" href="css/checkout.css">
+      <script src="js/jquery-3.7.0.min.js"></script>
+      <script src="json/cars.json"></script>
+      <script src="js/checkout.js"></script>
+   </head>
+
+   <body>
+    <div class="heading">
+
+     <h1>Car Rental Center</h1>
+
+
+        <input type="button" id="checkout" onclick="(window.location.href = 'cart.html')" value="Reservation">
+
+     </div>
+
+     <div class="table">
+     <div class="checkout-form" id="checkout-form">
+
+        <table border="0px" align="center">
+          
+            <tr>
+                  <h1>Reservation Form</h1>
+            </tr>
+  
+
+            <tr> 
+                <td>
+                    <input class="required" type="text" id="fname" name="fname" placeholder="First Name *" required>
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                    <input class="required" type="text" id="lname" name="lname" placeholder="Last Name *" required>
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                    <input class="required" type="text" id="email" name="email" placeholder="Email *"required>
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                    <input class="required" type="text" id="address" name="address" placeholder="Address *" required>
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                    <input class="required" type="text" id="city" name="city" placeholder="City *" required>
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                    <select id="state" name="state">
+                        <option value="NSW">New South Wales</option>
+                        <option value="QLD">Queensland</option>
+                        <option value="VIC">Victoria</option>
+                        <option value="SA">South Australia</option>
+                        <option value="NT">Northern Territory</option>
+                        <option value="WA">Western Australia</option>
+                        <option value="ACT">Australian Capital City</option>
+                      </select>  
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                    <input class="required" type="text" id="postcode" name="postcode" placeholder="Post Code *" required>
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                    <select id="payment" name="payment" required>
+                        <option value="creditcard">Credit Card</option>
+                        <option value="paypal">PayPal</option>
+                        <option value="applepay">Apple Pay</option>
+                      </select>
+                </td>
+            </tr>
+            <tr> 
+                <td>
+                    <input type="submit" onclick="checkForm()" value="Submit Reservation">
+                </td>
+            </tr>
+           
+        </table>
+
+     </div>
+
+     </div>
+
+   </body>
+
+   <script>
+        function checkForm() {  
+                var check = document.getElementsByClassName("required");
+                for (var i = 0; i < check.length; i++) {
+                    if (check[i].value === "") {
+                    alert("All fields must be filled out.");
+                    return false;
+                    }
+                }
+                window.location.href = "confirmation.html";
+                return true;
+                
+            }
+
+
+   </script>

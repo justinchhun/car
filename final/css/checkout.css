@@ -1,0 +1,24 @@
+
+.checkout-form table {
+    width: 37%;
+    padding: 15px;
+    border: 0px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 9px, 15px;
+    
+  }
+
+  .checkout-form tr {
+    text-align: center;
+   
+  }
+  
+  .checkout-form td  {
+    width: 600px;
+    height: 50px;
+    outline: 0px;
+    padding: 5px;
+    border: none;
+
+  }
+  

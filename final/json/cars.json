@@ -1,0 +1,147 @@
+{
+  "cars": [
+    {
+      "category": "Sedan",
+      "availability": true,
+      "brand": "Toyota",
+      "model": "Camry",
+      "model_year": 2018,
+      "mileage": 140000,
+      "fuel_type": "Petrol",
+      "seats": 5,
+      "price_per_day": 140,
+      "description": "This is a very family-friendly car"
+
+ 
+    },
+    {
+      "category": "SUV",
+      "availability": true,
+      "brand": "Ford",
+      "model": "Puma",
+      "model_year": 2015,
+      "mileage": 202000,
+      "fuel_type": "Petrol",
+      "seats": 7,
+      "price_per_day": 150,
+      "description": "This is a very family-friendly car"
+    },
+    {
+      "category": "Hatchback",
+      "availability": true,
+      "brand": "Hyundai",
+      "model": "i30",
+      "model_year": 2023,
+      "mileage": 1000,
+      "fuel_type": "Petrol",
+      "seats": 5,
+      "price_per_day": 180,
+      "description": "This is a very sporty car"
+
+
+    },
+    {
+      "category": "Convertible",
+      "availability": true,
+      "brand": "Honda",
+      "model": "s2000",
+      "model_year": 2005,
+      "mileage": 192000,
+      "fuel_type": "Petrol",
+      "seats": 2,
+      "price_per_day": 150,
+      "description": "This is a very sporty car"
+
+
+    },
+
+    {
+      "category": "Hatchback",
+      "availability": true,
+      "brand": "Subaru",
+      "model": "Impreza WRX",
+      "model_year": 2009,
+      "mileage": 220000,
+      "fuel_type": "Petrol",
+      "seats": 5,
+      "price_per_day": 190,
+      "description": "This is a very sporty car"
+
+
+    },
+
+    {
+      "category": "Sedan",
+      "availability": true,
+      "brand": "Toyota",
+      "model": "Corolla",
+      "model_year": 2020,
+      "mileage": 80000,
+      "fuel_type": "Petrol",
+      "seats": 5,
+      "price_per_day": 130,
+      "description": "This is a very easy car to drive"
+
+
+    },
+
+    {
+      "category": "Minivan",
+      "availability": false,
+      "brand": "Mercedes-Benz",
+      "model": "V-Class",
+      "model_year": 2023,
+      "mileage": 1000,
+      "fuel_type": "Petrol",
+      "seats": 7,
+      "price_per_day": 190,
+      "description": "This is a very massive car"
+
+
+    },
+
+    {
+      "category": "Hatchback",
+      "availability": true,
+      "brand": "Honda",
+      "model": "Civic",
+      "model_year": 2018,
+      "mileage": 100000,
+      "fuel_type": "Petrol",
+      "seats": 5,
+      "price_per_day": 150,
+      "description": "This is a very sporty car"
+
+
+    },
+    {
+      "category": "SUV",
+      "availability": true,
+      "brand": "Mazda",
+      "model": "CX-9",
+      "model_year": 2021,
+      "mileage": 76000,
+      "fuel_type": "Petrol",
+      "seats": 7,
+      "price_per_day": 155,
+      "description": "This is a very family-friendly car"
+
+
+    },
+
+    {
+      "category": "Sedan",
+      "availability": true,
+      "brand": "Nissan",
+      "model": "Skyline GTR R34",
+      "model_year": 2000,
+      "mileage": 200000,
+      "fuel_type": "Petrol",
+      "seats": 5,
+      "price_per_day": 250,
+      "description": "This is the best JDM car we have"
+
+
+    }
+  ]
+}

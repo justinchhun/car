@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Car Rental</title>
+      <link rel="stylesheet" href="css/home.css">
+      <script src="js/jquery-3.7.0.min.js"></script>
+      <script src="json/cars.json"></script>
+      <script src="js/cart.js"></script>
+   </head>
+   <body>
+      <div class="heading">
+
+         <h1>Car Rental Center</h1>
+
+         <input type="button" id="checkout" onclick="(window.location.href = 'home.html')" value="Car List">
+
+      </div>
+      <div class="table">
+         <form id="reservationform">
+            <table border="0px" align="center">
+               <tr>
+                  <h1>Reservation</h1>
+               </tr>
+               <tr>
+                  <th>Vehicle Image</th>
+                  <th>Vehicle Model</th>
+                  <th>Price Per Day</th>
+                  <th>Rental Days</th>
+                  <th>Action</th>
+               </tr>
+               <tbody id="reservation-table"></tbody>
+               <tfoot>
+                  <tr>
+                     <td colspan="4" class="total">Total:</td>
+                     <td class="total-days"></td>
+                     <td class="total-price"></td>
+                  </tr>
+                  <tr>
+                     <td colspan="5" class="submit">
+               
+                           <input type="button" id="continue" value="Continue to Checkout"  onclick="(window.location.href = 'checkout.html')">
+                        
+                         </td>
+                  </tr>
+               </tfoot>
+            </table>
+         </form>
+      </div>
+   </body>
+</html>
+
+<SCRIPT>
+
+
+var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+   for (var i = 0; i < cartItems.length; i++) {
+      var car = cartItems[i];
+
+  
+      var row = '<tr>' +
+                  '<td><img src="images/' + car.image + ' id="photo"></td>' +
+                  '<td>' + car.model + '</td>' +
+                  '<td>$' + car.price_per_day + '</td>' +
+                  '<td><input type="number" class="days" min="1" max="30" value="1"></td>' +
+                  '<td><button class="remove" data-car-id="' + car.model + '">Remove</button></td>' +
+               '</tr>';
+
+      $('#reservation-table').append(row);
+   }
+
+   updateCartDisplay();
+
+   
+
+   function updateCartDisplay() {
+      var reserveTable = $('#reservation-table');
+      reserveTable.empty(); 
+
+      var checkoutBtn = $('#continue');
+      var priceTotal = 0;
+      var daysTotal = 0; 
+
+      if (cartItems.length === 0) {
+      checkoutBtn.prop('disabled', true);
+         $('.total-price').text('$0');
+         $('.total-days').text('0 days');
+         return; 
+      }
+      else {
+         checkoutBtn.prop('disabled', false);
+      }
+
+
+  for (var i = 0; i < cartItems.length; i++) {
+      var car = cartItems[i];
+      var row = $('<tr></tr>');
+
+      var picture = $('<img>').attr('src', car.image).addClass('vehicle-image');
+      var type = $('<td></td>').text(car.brand + ' ' + car.model);
+      var pay = $('<td></td>').text('$' + car.price_per_day);
+      var days = $('<td></td>').html('<input type="number" class="days" min="1" max="30" value="' + car.days + '" style="color: black;">');
+
+      days.find('.days').on('input', function() {
+         var dayNum = parseInt($(this).val()); 
+         if (isNaN(dayNum) || dayNum < 1 || dayNum > 30) {
+         dayNum = 1;
+         }
+         var rowNum = $(this).closest('tr').index(); 
+         cartItems[rowNum].days = dayNum; 
+         updateCartDisplay(); 
+      });
+
+    var removeBtn = $('<button></button>').addClass('removebtn').text('Remove');
+    removeBtn.data('index', i);
+    removeBtn.addClass('removecar');
+
+
+    $(document).on('click', '.removecar', function() {
+      var i = $(this).data('index');
+      if (i >= 0 && i < cartItems.length) {
+         cartItems.splice(i, 1); 
+         updateCartDisplay();
+         localStorage.setItem('cartItems', JSON.stringify(cartItems)); 
+      }
+});
+
+    var remove = $('<td></td>').append(removeBtn);
+
+    row.append($('<td></td>').append(picture), type, pay, days, remove);
+    reserveTable.append(row);
+
+    priceTotal += car.price_per_day * car.days;
+    daysTotal += car.days; 
+  }
+
+  $('.total-price').text('$' + priceTotal);
+  $('.total-days').text(daysTotal + ' days'); 
+}
+
+
+
+
+</SCRIPT>
